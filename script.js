@@ -1,0 +1,4 @@
+/**
+ * Created by raymond on 1/6/15.
+ */
+function format1(t){return t=parseFloat(t)," "+t.toFixed(2).replace(/./g,function(t,a,e){return a>0&&"."!==t&&(e.length-a)%3===0?","+t:t})}$(document).ready(function(){$("#weekly-goal").on("keyup",function(){if(""!=$(this).val()&&$.isNumeric($(this).val())){var t=$(this).val();0==t.charAt(0)&&$(this).val(t.substring(1));for(var a=parseFloat($(this).val()),e=parseFloat($(this).val()),r=0,l=1;52>=l;l++)r+=a,$(".week-"+l+"-1").html(format1(a/parseInt(5))),$(".week-"+l+"-2").html(format1(a/parseInt(7))),$(".week-"+l+"-3").html(format1(a)),$(".week-"+l+"-4").html(format1(r)),a+=e;$("#yearly-goal").val(format1(r))}else{$(this).val(0);for(var a=parseFloat(0),e=parseFloat(0),r=0,l=1;52>=l;l++)r+=a,$(".week-"+l+"-1").html(format1(a/parseInt(5))),$(".week-"+l+"-2").html(format1(a/parseInt(7))),$(".week-"+l+"-3").html(format1(a)),$(".week-"+l+"-4").html(format1(r)),a+=e;$("#yearly-goal").val(format1(r))}})});
